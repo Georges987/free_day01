@@ -1,6 +1,9 @@
 # Docker stage
 
-## Vue.js
+## Single stage build
+
+
+### Vue.js
 
 The dockerfile is located in the root of the project. The dockerfile is used to build the image for the Vue.js application. The image is built using the following command:
 
@@ -14,7 +17,7 @@ docker run -p 8080:8080 vuejs-app
 ```
 ![To run nginx in forground or background](images/image.png)
 
-## React.js
+### React.js
 
 THe dockerfile is located in the root of the project. The dockerfile is used to build the image for the React.js application. The image is built using the following command:
 
@@ -27,7 +30,7 @@ docker run -it -p 3000:3000 --rm --name reactjs-app reactjs-app
 docker run -p 3000:3000 reactjs-app
 ```
 
-## Laravel
+### Laravel
 
 The dockerfile is located in the root of the project. The dockerfile is used to build the image for the Laravel application. The image is built using the following command:
 
@@ -40,7 +43,7 @@ docker run -it -p 8000:8000 --rm --name laravel-app laravel-app
 docker run -p 8000:8000 laravel-app
 ```
 
-## Nest.js
+### Nest.js
 
 The dockerfile is located in the root of the project. The dockerfile is used to build the image for the Nest.js application. The image is built using the following command:
 
@@ -53,7 +56,7 @@ docker run -it -p 3000:3000 --rm --name nestjs-app nestjs-app
 docker run -p 3000:3000 nestjs-app
 ```
 
-## Next.js
+### Next.js
 
 The dockerfile is located in the root of the project. The dockerfile is used to build the image for the Next.js application. The image is built using the following command:
 
@@ -66,7 +69,7 @@ docker run -it -p 3000:3000 --rm --name nextjs-app nextjs-app
 docker run -p 3000:3000 nextjs-app
 ```
 
-## Nuxtjs
+### Nuxtjs
 
 The dockerfile is located in the root of the project. The dockerfile is used to build the image for the Nuxt.js application. The image is built using the following command:
 
@@ -79,7 +82,7 @@ docker run -it -p 3000:3000 --rm --name nuxtjs-app nuxtjs-app
 docker run -p 3000:3000 nuxtjs-app
 ```
 
-## React native
+### React native
 
 The dockerfile is located in the root of the project. The dockerfile is used to build the image for the React native application. The image is built using the following command:
 
@@ -91,7 +94,7 @@ docker run -it --rm -p 8081:8081 --name reactnative-app reactnative-app
 # if you don't want to run the container in interactive mode, you can run it in detached mode with
 docker run -p 8081:8081 reactnative-app
 ```
-## Flask
+### Flask
 
 The dockerfile is located in the root of the project. The dockerfile is used to build the image for the Flask application. The image is built using the following command:
 
@@ -104,7 +107,7 @@ docker run -it -p 5000:5000 --rm --name flask-app flask-app
 docker run -p 5000:5000 flask-app
 ```
 
-## Nodejs & Express
+### Nodejs & Express
 
 The dockerfile is located in the root of the project. The dockerfile is used to build the image for the Nodejs & Express application. The image is built using the following command:
 
@@ -117,7 +120,7 @@ docker run -it -p 3000:3000 --rm --name nodejs-express-app nodejs-express-app
 docker run -p 3000:3000 nodejs-express-app
 ```
 
-## Troubleshooting
+### Troubleshooting
 
 If you have problem during build of next js, you can try first to remove the .next folder and then rebuild the image.
 
@@ -125,3 +128,7 @@ If you have problem during build of next js, you can try first to remove the .ne
 rm -rf .next
 docker build -t nextjs-app .
 ```
+
+## Multi stage build with docker-compose
+
+### Laravel + Vue.js + SQL
