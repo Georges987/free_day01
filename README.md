@@ -66,6 +66,20 @@ docker run -it -p 3000:3000 --rm --name nextjs-app nextjs-app
 docker run -p 3000:3000 nextjs-app
 ```
 
+## Nuxtjs
+
+The dockerfile is located in the root of the project. The dockerfile is used to build the image for the Nuxt.js application. The image is built using the following command:
+
+```bash
+# build the image
+docker build -t nuxtjs-app .
+# and run it with
+docker run -it -p 3000:3000 --rm --name nuxtjs-app nuxtjs-app
+# if you don't want to run the container in interactive mode, you can run it in detached mode with
+docker run -p 3000:3000 nuxtjs-app
+```
+
+
 ## Troubleshooting
 
 If you have problem during build of next js, you can try first to remove the .next folder and then rebuild the image.
