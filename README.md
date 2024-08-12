@@ -87,11 +87,35 @@ The dockerfile is located in the root of the project. The dockerfile is used to 
 # build the image
 docker build -t reactnative-app .
 # and run it with
-docker run -it --rm --name reactnative-app reactnative-app
+docker run -it --rm -p 8081:8081 --name reactnative-app reactnative-app
 # if you don't want to run the container in interactive mode, you can run it in detached mode with
-docker run reactnative-app
+docker run -p 8081:8081 reactnative-app
+```
+## Flask
+
+The dockerfile is located in the root of the project. The dockerfile is used to build the image for the Flask application. The image is built using the following command:
+
+```bash
+# build the image
+docker build -t flask-app .
+# and run it with
+docker run -it -p 5000:5000 --rm --name flask-app flask-app
+# if you don't want to run the container in interactive mode, you can run it in detached mode with
+docker run -p 5000:5000 flask-app
 ```
 
+## Nodejs & Express
+
+The dockerfile is located in the root of the project. The dockerfile is used to build the image for the Nodejs & Express application. The image is built using the following command:
+
+```bash
+# build the image
+docker build -t nodejs-express-app .
+# and run it with
+docker run -it -p 3000:3000 --rm --name nodejs-express-app nodejs-express-app
+# if you don't want to run the container in interactive mode, you can run it in detached mode with
+docker run -p 3000:3000 nodejs-express-app
+```
 
 ## Troubleshooting
 
