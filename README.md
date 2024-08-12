@@ -79,6 +79,19 @@ docker run -it -p 3000:3000 --rm --name nuxtjs-app nuxtjs-app
 docker run -p 3000:3000 nuxtjs-app
 ```
 
+## React native
+
+The dockerfile is located in the root of the project. The dockerfile is used to build the image for the React native application. The image is built using the following command:
+
+```bash
+# build the image
+docker build -t reactnative-app .
+# and run it with
+docker run -it --rm --name reactnative-app reactnative-app
+# if you don't want to run the container in interactive mode, you can run it in detached mode with
+docker run reactnative-app
+```
+
 
 ## Troubleshooting
 
