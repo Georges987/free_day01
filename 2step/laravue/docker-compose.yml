@@ -1,0 +1,55 @@
+services:
+  # Laravel service
+  laravel:
+    build:
+      context: ./back/
+      dockerfile: Dockerfile
+    ports:
+      - '8000:8000'
+    volumes:
+      - '.:/app'
+    environment:
+      - DATABASE_HOST=localhost
+      - DATABASE_PORT=5432
+      - DATABASE_NAME=laravel
+      - DATABASE_USER=laravel
+      - DATABASE_PASSWORD=laravel
+    depends_on:
+      - postgresql
+    networks:
+      - laravel-network
+  # Vuejs service
+  vuejs:
+    build:
+      context: ./front/
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
+    volumes:
+      - '.:/app'
+    depends_on:
+      - laravel
+    networks:
+      - laravel-network
+  # PostgreSQL service
+  postgresql:
+    image: 'bitnami/postgresql:latest'
+    ports:
+      - '${FORWARD_DB_PORT:-5432}:5432'
+    environment:
+      - POSTGRESQL_HOST=localhost
+      - POSTGRESQL_DATABASE=laravel
+      - POSTGRESQL_USERNAME=laravel
+      - POSTGRESQL_PASSWORD=laravel
+    restart: always
+    networks:
+      - laravel-network
+    volumes:
+      - db_data:/var/lib/pgsql/data
+
+volumes:
+  db_data:
+
+networks:
+  laravel-network:
+    driver: bridge
