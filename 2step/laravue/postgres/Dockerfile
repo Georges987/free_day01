@@ -1,0 +1,10 @@
+FROM postgres:12.1
+WORKDIR /app
+
+ENV POSTGRES_USER=postgres
+ENV POSTGRES_PASSWORD=postgres
+ENV POSTGRES_DB=nexus
+
+EXPOSE 5432
+
+CMD [ "postgres" ]
