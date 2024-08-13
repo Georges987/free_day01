@@ -6,10 +6,18 @@ RUN docker-php-ext-install mysqli pdo_mysql
 RUN docker-php-ext-install pdo_pgsql pgsql
 WORKDIR /app
 COPY . /app
+
+ENV DB_CONNECTION=pgsql
+ENV DB_HOST=0.0.0.0
+ENV DB_PORT=5432
+ENV DB_DATABASE=nexus
+ENV DB_USERNAME=nexus
+ENV DB_PASSWORD=nexus
+
 RUN composer update
 RUN cp .env.example .env
 RUN php artisan key:generate
-RUN php artisan migrate --seed
+
 EXPOSE 8000
 
 CMD [ "php", "artisan", "serve", "--host=0.0.0.0", "--port=8000" ]
