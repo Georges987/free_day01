@@ -11,5 +11,5 @@ RUN pip install -r requirements.txt
 
 # copy every content from the local file to the image
 COPY . /app
-
-CMD ["flask", "--app", "app.py", "run" ]
+EXPOSE 5000
+CMD ["flask", "--app", "app.py", "run", "--host=0.0.0.0" ]
