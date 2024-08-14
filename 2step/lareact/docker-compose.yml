@@ -1,0 +1,30 @@
+networks:
+  laravel-net:
+    name: laravel-net
+
+services:
+  # Laravel service
+  laravel:
+    build:
+      context: ./back/
+      dockerfile: Dockerfile
+    ports:
+      - '8000:8000'
+    expose:
+      - '8000'
+    networks:
+      - laravel-net
+
+  # Reactjs service
+  reactjs:
+    build:
+      context: ./front/
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    expose:
+      - '3000'
+    depends_on:
+      - laravel
+    networks:
+      - laravel-net

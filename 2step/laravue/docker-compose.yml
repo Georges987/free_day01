@@ -12,12 +12,6 @@ services:
       - '8000:8000'
     expose:
       - '8000'
-    environment:
-      - DATABASE_HOST=0.0.0.0
-      - DATABASE_PORT=3306
-      - DATABASE_NAME=nexus
-      - DATABASE_USER=nexus
-      - DATABASE_PASSWORD=nexus
     depends_on:
       - postgresql
     networks:
@@ -45,8 +39,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - '5434:5432'
-    expose:
-      - '5432'
     networks:
       - laravel-net
     environment:
