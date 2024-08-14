@@ -7,7 +7,7 @@ RUN docker-php-ext-install zip
 RUN pecl install mongodb
 # RUN apt-get install php-mongodb
 # mongodb driver
-RUN docker-php-ext-install pdo pdo_mysql
+# RUN docker-php-ext-install pdo pdo_mysql
 RUN docker-php-ext-enable mongodb
 WORKDIR /app
 COPY . /app
